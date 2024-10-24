@@ -2,7 +2,11 @@ name: 👷 publish dev
 
 on:
   push:
-    branches:
+    # TODO: choose your "feature branch" naming (or leave it like this)
+    # or run this on every non-main branch, replacing the whole `branches` with
+    # branches-ignore:
+    #   - main
+    branches: 
       - dev
       - dev/*
       - dev-*
