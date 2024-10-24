@@ -51,14 +51,15 @@ jobs:
           pyproject-build
           twine upload --repository ${{ inputs.repository }} dist/*
       - name: highlight
+        # TODO: update package name in summary text
         run: |
           INDEX=""
           if [ "${{ inputs.repository }}" != "pypi" ]; then
             INDEX=" -i ${{ inputs.repository }}"
           fi
           cat <<EOF >> ${GITHUB_STEP_SUMMARY}
-          \`educabiz\` uploaded to ${{ inputs.repository }}
+          \`example\` uploaded to ${{ inputs.repository }}
           \`\`\`
-          pip install${INDEX} educabiz==${{ inputs.version }}
+          pip install${INDEX} example==${{ inputs.version }}
           \`\`\`
           EOF
