@@ -19,7 +19,7 @@ Homepage = "https://github.com/fopina/python-package-template"
 
 [project.scripts]
 # TODO: remove this if package is not a CLI or update it if it is
-admindocs-cli = "example.__main__:cli"
+example-cli = "example.__main__:cli"
 
 [tool.setuptools.packages.find]
 # TODO: replace example with your package name
