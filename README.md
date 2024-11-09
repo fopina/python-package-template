@@ -23,3 +23,37 @@
 * [ ] Add PYPI credentials to secrets
     * `PYPI_USERNAME` and `PYPI_TOKEN` to publish tags to pypi
     * `TESTPYPI_USERNAME` and `TESTPYPI_TOKEN` to publish dev branches to testpypi
+* [ ] Replace this README.md - template below
+---
+---
+---
+
+# fp-github-template-example
+
+CLI that echos whatever you tell it to.
+
+## Install
+
+```
+pip install fp-github-template-example
+```
+
+## Usage
+
+```
+$ example-cli
+Got nothing to say?
+
+$ example-cli hello
+HELLO right back at ya!
+```
+
+```python
+>>> from example import demo
+>>> demo.echo('ehlo')
+'EHLO right back at ya!'
+```
+
+## Build
+
+Check out [CONTRIBUTING.md](CONTRIBUTING.md)
