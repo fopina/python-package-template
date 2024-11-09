@@ -10,9 +10,10 @@
 
 * `pytest` for tests: `make test`
 * `ruff` for linting/formatting: `make lint` (replaces both `black` and `isort`)
+* [pyproject-pipenv](https://github.com/fopina/pyproject-pipenv) to make sure dependencies in pyproject.toml and Pipfile are in sync
 * `.github` with actions ready to be used
-    * [test](.github/workflows/test.yml) runs lint checks and unit tests
-    * [publish-dev](.github/workflows/publish-dev.yml) publishes feature branches (`dev`/`dev-*`) to [testpypi](https://test.pypi.org)
+    * [test](.github/workflows/test.yml) runs lint checks, unit tests and pyproject-pipenv
+    * [publish-dev](.github/workflows/publish-dev.yml) publishes feature branches (`dev`/`dev-*`) to [testpypi](https://test.pypi.org) - more about this on [Notes](#feature-branch-publishing)
     * [publish-main](.github/workflows/publish-main.yml) publishes semver tags to [pypi](https://pypi.org)
 
 ## New project checklist
@@ -24,9 +25,19 @@
     * `PYPI_USERNAME` and `PYPI_TOKEN` to publish tags to pypi
     * `TESTPYPI_USERNAME` and `TESTPYPI_TOKEN` to publish dev branches to testpypi
 * [ ] Replace this README.md - template below
----
----
----
+
+## Notes
+
+### Feature branch publishing
+
+`publish-dev` workflow publishes `dev`/`dev-*` branches to [testpypi](https://test.pypi.org).
+
+Other common approach to publish dev branches is to use pre-release channels: version the package with a `rc` or `beta` suffix (such as `1.0.0-beta1`) and pypi will consider pre-release. In order to install this, the user needs to do `pip install PACKAGE --pre` otherwise the latest stable is picked up.  
+However this will "pollute" your pypi index and it still requires you to bump the version (`1.0.0-beta1` < `1.0.0`) or to install the branch using specific version.
+
+Yet another approach is to simply use an entirely different package name for the dev releases. Tensorflow does that, for example, with [tf-nightly](https://pypi.org/project/tf-nightly/).
+
+## ---
 
 # fp-github-template-example
 
