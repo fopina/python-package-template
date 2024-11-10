@@ -51,11 +51,11 @@ jobs:
           cache-from: ghcr.io/${{ github.repository }}:latest-build-cache
           cache-to: ghcr.io/${{ github.repository }}:latest-build-cache
           tags: |
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository }}:${{ github.ref_name }}
             ghcr.io/${{ github.repository }}:latest
 
       - name: Show summary
         run: |
           echo 'Published:  ' >> ${GITHUB_STEP_SUMMARY}
-          echo '* `ghcr.io/${{ github.repository }}:${{ github.sha }}`' >> ${GITHUB_STEP_SUMMARY}
+          echo '* `ghcr.io/${{ github.repository }}:${{ github.ref_name }}`' >> ${GITHUB_STEP_SUMMARY}
           echo '* `ghcr.io/${{ github.repository }}:latest`' >> ${GITHUB_STEP_SUMMARY}
