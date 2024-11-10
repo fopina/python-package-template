@@ -18,6 +18,8 @@
 * [ ] Add PYPI credentials to secrets
     * `PYPI_USERNAME` and `PYPI_TOKEN` to publish tags to pypi
     * `TESTPYPI_USERNAME` and `TESTPYPI_TOKEN` to publish dev branches to testpypi
+* [ ] Add [codecov](https://app.codecov.io/github/fopina/) token
+    * `CODECOV_TOKEN` taken from link above
 * [ ] Replace this README.md - template below
 
 ## Notes
@@ -36,7 +38,7 @@ Yet another approach is to simply use an entirely different package name for the
 # fp-github-template-example
 
 [![ci](https://github.com/fopina/python-package-template/actions/workflows/publish-main.yml/badge.svg)](https://github.com/fopina/python-package-template/actions/workflows/publish-main.yml)
-[![tests](https://github.com/fopina/python-package-template/actions/workflows/tests.yml/badge.svg)](https://github.com/fopina/python-package-template/actions/workflows/tests.yml)
+[![test](https://github.com/fopina/python-package-template/actions/workflows/test.yml/badge.svg)](https://github.com/fopina/python-package-template/actions/workflows/test.yml)
 [![codecov](https://codecov.io/github/fopina/python-package-template/graph/badge.svg)](https://codecov.io/github/fopina/python-package-template)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/fp-github-template-example.svg)](https://pypi.org/project/fp-github-template-example/)
 [![Current version on PyPi](https://img.shields.io/pypi/v/django-bulk-update-or-create)](https://pypi.org/project/fp-github-template-example/)
