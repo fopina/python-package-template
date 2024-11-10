@@ -9,7 +9,11 @@ lint-check:
 	pyproject-pipenv
 
 test:
-	python -m pytest --cov
+	if [ -n "$(GITHUB_RUN_ID)" ]; then \
+		pytest --cov --cov-report=xml --junitxml=junit.xml -o junit_family=legacy; \
+	else \
+		python -m pytest --cov; \
+	fi
 
 testpub:
 	rm -fr dist
