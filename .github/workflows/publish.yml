@@ -14,6 +14,19 @@ on:
         required: true
       twine_password:
         required: true
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (for example: 1.2.3)'
+        type: string
+        required: true
+      repository:
+        description: 'Package index repository'
+        type: choice
+        options:
+          - pypi
+          - testpypi
+        default: pypi
 
 run-name: publish to ${{ inputs.repository }}
 
@@ -46,8 +59,8 @@ jobs:
         run: pyproject-build
       - name: Publish
         env:
-          TWINE_USERNAME: ${{ secrets.twine_username }}
-          TWINE_PASSWORD: ${{ secrets.twine_password }}
+          TWINE_USERNAME: ${{ secrets.twine_username || secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.twine_password || secrets.PYPI_TOKEN }}
         run: |
           pyproject-build
           twine upload --repository ${{ inputs.repository }} dist/*
