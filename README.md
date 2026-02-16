@@ -4,9 +4,9 @@
 
 * `pytest` for tests: `make test`
 * `ruff` for linting/formatting: `make lint` (replaces both `black` and `isort`)
-* [pyproject-pipenv](https://github.com/fopina/pyproject-pipenv) to make sure dependencies in pyproject.toml and Pipfile are in sync
+* `uv` for dependency and virtualenv management (`uv sync --group dev`)
 * `.github` with actions ready to be used
-    * [test](.github/workflows/test.yml) runs lint checks, unit tests and pyproject-pipenv
+    * [test](.github/workflows/test.yml) runs lint checks and unit tests
     * [publish-dev](.github/workflows/publish-dev.yml) publishes feature branches (`dev`/`dev-*`) to:
       * [testpypi](https://test.pypi.org) - more about this on [Notes](#feature-branch-publishing)
       * docker image to ghcr.io - remove job if image makes no sense

@@ -23,9 +23,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pipenv
-          pipenv requirements --dev > reqs.txt
-          pip install -r reqs.txt
+          pip install uv
+          uv sync --group dev
 
       - name: Lint check
         id: lint-check
