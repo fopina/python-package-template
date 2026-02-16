@@ -15,4 +15,5 @@ FROM base
 COPY --from=builder /app /app
 ENV PYTHONPATH=/app
 
+# TODO: replace with your package name
 ENTRYPOINT ["python3", "-m", "example"]
