@@ -10,9 +10,7 @@ on:
         default: pypi
         type: string
     secrets:
-      twine_username:
-        required: true
-      twine_password:
+      twine_token:
         required: true
   workflow_dispatch:
     inputs:
@@ -58,8 +56,8 @@ jobs:
         run: uv run pyproject-build
       - name: Publish
         env:
-          TWINE_USERNAME: ${{ secrets.twine_username || secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.twine_password || secrets.PYPI_TOKEN }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.twine_token || secrets.PYPI_TOKEN }}
         run: |
           uv run pyproject-build
           uv run twine upload --verbose --repository ${{ inputs.repository }} dist/*
