@@ -51,7 +51,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          echo x ${{ secrets.twine_token }} | base64
           pip install uv
           uv sync --group dev
       - name: force right version
