@@ -12,6 +12,8 @@ on:
     secrets:
       twine_token:
         required: true
+      CODECOV_TOKEN:
+        required: false
   workflow_dispatch:
     inputs:
       version:
@@ -31,6 +33,8 @@ run-name: publish to ${{ inputs.repository }}
 jobs:
   test:
     uses: ./.github/workflows/test.yml
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   publish:
     name: publish to ${{ inputs.repository }}

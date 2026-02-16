@@ -2,6 +2,9 @@ name: 🧪 tests
 
 on:
   workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        required: false
   push:
     branches-ignore:
       # these are already tested by publish-dev
@@ -38,6 +41,7 @@ jobs:
           make test
       
       - name: Upload results to Codecov
+        if: ${{ secrets.CODECOV_TOKEN != '' }}
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

@@ -13,6 +13,7 @@ jobs:
       version: ${{ github.ref_name }}
     secrets:
       twine_token: ${{ secrets.PYPI_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   build_image:
     # TODO: remove this entire job if an image does not make sense (ie: just a library, no CLI)
