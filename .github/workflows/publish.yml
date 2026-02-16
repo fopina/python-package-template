@@ -61,7 +61,7 @@ jobs:
       - name: Publish
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.twine_token || secrets.PYPI_TOKEN }}
+          TWINE_PASSWORD: ${{ secrets.twine_token }}
         run: |
           uv run pyproject-build
           uv run twine upload --verbose --repository ${{ inputs.repository }} dist/*
