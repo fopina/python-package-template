@@ -4,7 +4,7 @@
 
 * `pytest` for tests: `make test`
 * `ruff` for linting/formatting: `make lint` (replaces both `black` and `isort`)
-* `uv` for dependency and virtualenv management (`uv sync --group dev`)
+* `uv` for dependency and virtualenv management (`uv sync --dev`)
 * `.github` with actions ready to be used
     * [test](.github/workflows/test.yml) runs lint checks and unit tests
     * [publish-dev](.github/workflows/publish-dev.yml) publishes feature branches (`dev`/`dev-*`) to:
